@@ -5,7 +5,7 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 ## Methods covered
 
 - [x] TensorFlow Serving locally 
-- [ ] Vertex AI (without TensorFlow Runtime)
+- [x] Vertex AI (without TensorFlow Runtime)
 - [ ] Vertex AI (with TensorFlow Runtime)
 - [ ] Kubernetes with GKE
 
