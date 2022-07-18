@@ -9,7 +9,7 @@ env:
   BASE_IMAGE_TAG: "gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt"
   MODEL_NAME: "tf-vit"
   
-  MODEL_RELEASE_REPO: "deep-diver/deploy-hf-tf-vision-models"
+  MODEL_RELEASE_REPO: "sayakpaul/deploy-hf-tf-vision-models"
   MODEL_RELEASE_FILE: "saved_model.tar.gz"
   TARGET_EXPERIMENT: "8vCPU+16GB+inter_op4"
   
