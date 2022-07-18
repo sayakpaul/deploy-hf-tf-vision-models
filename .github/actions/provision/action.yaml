@@ -1,0 +1,40 @@
+name: "Provision Deployment to the GKE cluster"
+description: "This action provisions custom built TFServing Docker image to the GKE cluster"
+inputs:
+  BASE_IMAGE_TAG:
+    reuiqred: true
+    description: "The default image tag"
+  NEW_IMAGE_TAG:
+    required: true
+    description: "The image tag to be deployed"
+  TARGET_EXPERIMENT:
+    required: true
+    description: "The target experiment name"
+  GKE_DEPLOYMENT_NAME:
+    required: true
+    description: "The deployemtn name to check out"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Kustomize
+      working-directory: .kube/
+      run: |-
+        curl -sfLo kustomize.tar.gz https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.1.2/kustomize_v4.1.2_linux_amd64.tar.gz
+        tar -zxvf kustomize.tar.gz
+        chmod u+x ./kustomize
+      shell: bash
+
+    - name: Update image name
+      working-directory: .kube/experiments/${{ inputs.TARGET_EXPERIMENT }}
+      run: |-
+        ../../kustomize edit set image ${{ inputs.BASE_IMAGE_TAG }}=${{ inputs.NEW_IMAGE_TAG }}
+      shell: bash
+
+    - name: Deploy to GKE
+      working-directory: .kube/
+      run: |-
+        ./kustomize build experiments/${{ inputs.TARGET_EXPERIMENT }} | kubectl apply -f -
+        kubectl rollout status deployment/${{ inputs.GKE_DEPLOYMENT_NAME }}
+        kubectl get services -o wide
+        kubectl describe deployment ${{ inputs.GKE_DEPLOYMENT_NAME }}
+      shell: bash
