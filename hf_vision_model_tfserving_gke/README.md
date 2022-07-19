@@ -20,7 +20,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
     - This builds and pushes a custom TF Serving Docker image with 🤗 `transformers` ViT model. It basically follows the [official document](https://www.tensorflow.org/tfx/serving/docker) to build an image.
     - Here are variables that you might need to customize inside the script
         - `GCP_PROJECT_ID`: GCP project ID to push custom built TF Serving Docker image
-        - `BASE_IMAGE_TAG`: Custom image will be built on top of this base TF Serving Docker image. This is set to `gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt` by default which is CPU optimized TF Serving Docker image
+        - `BASE_IMAGE_TAG`: Custom image will be built on top of this base TF Serving Docker image. This is set to `gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt` by default which is CPU optimized TF Serving Docker image according to [official document](https://github.com/tensorflow/serving/blob/master/tensorflow_serving/g3doc/setup.md#building-from-source)
         - `MODEL_RELEASE_REPO`: GitHub repository where to download the released model. This should follow the format of `username/reponame`. This is set to `sayakpaul/deploy-hf-tf-vision-models` by default
         - `MODEL_RELEASE_TAG`: Tag name of the GitHub Release where to download the released model. This is set to `1.0` by default
         - `MODEL_RELEASE_FILE`: Model filename to download from the GitHub Release's Asset under `MODEL_RELEASE_REPO` and `MODEL_RELEASE_TAG`. This is set to `saved_model.tar.gz` by default
