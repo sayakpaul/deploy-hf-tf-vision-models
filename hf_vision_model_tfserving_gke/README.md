@@ -47,7 +47,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
       - `GCP_PROJECT_ID`: GCP project ID where the GKE cluster is
       - `BASE_IMAGE_TAG`, `MODEL_NAME`, `VERSION`, `NEW_IMAGE_NAME`: Same values as in `./build_tfserving.sh` script
       - `GKE_CLUSTER_NAME`, `GKE_CLUSTER_ZONE`: Same values as in `./provision_gke_cluster.sh` script
-      - `TARGET_EXPERIMENT`: Name of the overlay configurations under `.kube/experiments`. This is set to `8vCPU+16GB+inter_op4` by default.
+      - `TARGET_EXPERIMENT`: Name of the overlay configurations under `.kube/experiments`. This is set to `8vCPU+16GB+inter_op4` by default. One can change this to `8vCPU+64GB+inter_op4_w_batch` or add a folder under `.kube/experiments` and use that. 
       - `GKE_DEPLOYMENT_NAME`: Name of the `Deployment`. This is set to `tfs-server` by default. This is going to be used to check rollout status of the deployment. 
 
 After all of these steps goes successfully, you will see the output similar to below. There are two parts. 
