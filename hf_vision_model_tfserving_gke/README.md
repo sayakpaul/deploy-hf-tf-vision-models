@@ -1,6 +1,6 @@
 # Deploy 🤗 `transformers` ViT model with TFServing on GKE
 
-There are five shell scripts to deploy 🤗 `transformers` ViT model with TFServing on GKE. Some of them may be skipped depending on your local dev environment, but run all of them sequentially if you have a zero-base dev environment.
+There are five shell scripts to deploy 🤗 `transformers` ViT model with TF Serving on GKE. Some of them may be skipped depending on your local dev environment, but if you're starting from scratch, then run all the scripts sequentially.
 
 1. `bash ./install_gcloud.sh`: Installs `gcloud` CLI tool, `docker-credential-gcr` and `gke-gcloud-auth-plugin` components from `gcloud` CLI. 
     - Skip if you already have `gcloud`. 
