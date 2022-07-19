@@ -1,5 +1,7 @@
 # Deploy 🤗 `transformers` ViT model with TF Serving on GKE
 
+## Instructions to provision
+
 There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serving on GKE. Some of them may be skipped depending on your local dev environment, but if you're starting from scratch, then run all the scripts sequentially.
 
 1. `./install_gcloud.sh`
@@ -38,7 +40,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
 
 6. `./deploy_tfserving_gke.sh`: 
     - This apply `Deployment` and `Service` to the GKE cluster using `Kustomize`. Essentially, the deployment will be applied using `kustomize build experiments/$TARGET_EXPERIMENT`. This means `Kustomize` constructs yamls by overlaying the base ones in `.kube/base` with specific ones in `.kube/experiments/$TARGET_EXPERIMENT`
-    
+
     - There is a only experiment at the moment, but you can simply add more configurations under `.kube/experiments` by inherting base ones.
     
     - Here are variables that you might need to customize inside the script.
@@ -47,3 +49,55 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
       - `GKE_CLUSTER_NAME`, `GKE_CLUSTER_ZONE`: Same values as in `./provision_gke_cluster.sh` script
       - `TARGET_EXPERIMENT`: Name of the overlay configurations under `.kube/experiments`. This is set to `8vCPU+16GB+inter_op4` by default.
       - `GKE_DEPLOYMENT_NAME`: Name of the `Deployment`. This is set to `tfs-server` by default. This is going to be used to check rollout status of the deployment. 
+
+After all of these steps goes successfully, you will see the output similar to below. There are two parts. 
+- The first part shows the endpoints of the deployment. Port number `8500` is for `HTTP/1.1` based RESTful API while Port number `8501` is for `HTTP/2` based gRPC API. 
+
+- The second part shows the rolling status of the deployment. Pay attention that `Image` is set correctly, and there are two `Ports` for `HTTP/1.1` and `HTTP/2`. Also, some TF Serving specific flags are set in the `Args` (i.e `tensorflow_inter_op_parallelism` and `tensorflow_intra_op_parallelism`). Finally `Replicas` shows there are desired number of pods running. 
+
+```
+NAME         TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                         AGE     SELECTOR
+kubernetes   ClusterIP      10.44.0.1      <none>          443/TCP                         6m51s   <none>
+tfs-server   LoadBalancer   10.44.10.106   34.134.46.135   8500:32325/TCP,8501:30635/TCP   4m29s   app=tfs-server
+
+Name:                   tfs-server
+Namespace:              default
+CreationTimestamp:      Tue, 19 Jul 2022 14:25:33 +0000
+Labels:                 app=tfs-server
+Annotations:            deployment.kubernetes.io/revision: 2
+Selector:               app=tfs-server
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=tfs-server
+  Containers:
+   tfs-k8s:
+    Image:       gcr.io/gcp-ml-172005/tfserving-hf-vit:latest
+    Ports:       8500/TCP, 8501/TCP
+    Host Ports:  0/TCP, 0/TCP
+    Args:
+      --tensorflow_inter_op_parallelism=4
+      --tensorflow_intra_op_parallelism=8
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   tfs-server-6fc97c4f68 (2/2 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  4m30s  deployment-controller  Scaled up replica set tfs-server-fcc588d44 to 2
+  Normal  ScalingReplicaSet  27s    deployment-controller  Scaled up replica set tfs-server-6fc97c4f68 to 1
+  Normal  ScalingReplicaSet  16s    deployment-controller  Scaled down replica set tfs-server-fcc588d44 to 1
+  Normal  ScalingReplicaSet  15s    deployment-controller  Scaled up replica set tfs-server-6fc97c4f68 to 2
+  Normal  ScalingReplicaSet  3s     deployment-controller  Scaled down replica set tfs-server-fcc588d44 to 0
+
+```
+
+## Instructions to perform inference with the endpoint
+
+TBD
