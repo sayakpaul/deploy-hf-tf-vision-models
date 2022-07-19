@@ -4,6 +4,7 @@ export MODEL_NAME=hf-vit
 export VERSION=latest
 export NEW_IMAGE_NAME=tfserving-$MODEL_NAME:$VERSION
 export NEW_IMAGE_TAG=gcr.io/$GCP_PROJECT_ID/$NEW_IMAGE_NAME
+export BASE_IMAGE_TAG=gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt
 
 export GCP_PROJECT_ID=gcp-ml-172005
 
