@@ -1,4 +1,4 @@
-# Deploy 🤗 `transformers` ViT model with TFServing on GKE
+# Deploy 🤗 `transformers` ViT model with TF Serving on GKE
 
 There are five shell scripts to deploy 🤗 `transformers` ViT model with TF Serving on GKE. Some of them may be skipped depending on your local dev environment, but if you're starting from scratch, then run all the scripts sequentially.
 
