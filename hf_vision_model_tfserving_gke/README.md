@@ -56,10 +56,12 @@ After all of these steps goes successfully, you will see the output similar to b
 - The second part shows the rolling status of the deployment. Pay attention that `Image` is set correctly, and there are two `Ports` for `HTTP/1.1` and `HTTP/2`. Also, some TF Serving specific flags are set in the `Args` (i.e `tensorflow_inter_op_parallelism` and `tensorflow_intra_op_parallelism`). Finally `Replicas` shows there are desired number of pods running. 
 
 ```
+# Part 1
 NAME         TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                         AGE     SELECTOR
 kubernetes   ClusterIP      10.44.0.1      <none>          443/TCP                         6m51s   <none>
 tfs-server   LoadBalancer   10.44.10.106   34.134.46.135   8500:32325/TCP,8501:30635/TCP   4m29s   app=tfs-server
 
+# Part 2
 Name:                   tfs-server
 Namespace:              default
 CreationTimestamp:      Tue, 19 Jul 2022 14:25:33 +0000
