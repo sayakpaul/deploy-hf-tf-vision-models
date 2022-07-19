@@ -1,6 +1,6 @@
 # Deploying Vision Models (TensorFlow) from 🤗 Transformers
 
-_By Chansung Park and Sayak Paul_
+_By [Chansung Park](https://github.com/deep-diver) and [Sayak Paul](https://github.com/sayakpaul)_
 
 This repository shows various ways of deploying a vision model (TensorFlow) from 🤗 Transformers using the TensorFlow Ecosystem. In particular, we use TensorFlow Serving (for local deployment), Vertex AI (serveless deployment), Kubernetes and GKE (more controlled deployment).
 
