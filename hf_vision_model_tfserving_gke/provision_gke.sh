@@ -12,6 +12,8 @@ export GKE_CLUSTER_ZONE=us-central1-a
 export GKE_DEPLOYMENT_NAME=tfs-server
 export TARGET_EXPERIMENT="8vCPU+16GB+inter_op4"
 
+eval "$(cat ~/.bashrc)"
+
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 gcloud container clusters get-credentials $GKE_CLUSTER_NAME --zone $GKE_CLUSTER_ZONE --project $GCP_PROJECT_ID  
 

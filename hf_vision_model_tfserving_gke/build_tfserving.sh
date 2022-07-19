@@ -12,6 +12,8 @@ export MODEL_NAME=hf-vit
 ### VERSION which will be added at the end of Docker Image tag
 export VERSION=latest
 
+eval "$(cat ~/.bashrc)"
+
 wget https://github.com/$MODEL_RELEASE_REPO/releases/download/$MODEL_RELEASE_TAG/$MODEL_RELEASE_FILE
 mv saved_model.tar.gz $ROOT_DIR/$MODEL_RELEASE_FILE
 mkdir -p $ROOT_DIR/$MODEL_NAME/1
