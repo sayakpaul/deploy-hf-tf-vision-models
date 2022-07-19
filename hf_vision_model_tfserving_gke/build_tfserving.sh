@@ -6,7 +6,7 @@ export GCP_PROJECT_ID=gcp-ml-172005
 export BASE_IMAGE_TAG=gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt
 
 ### Repository where to download SavedModel from
-export MODEL_RELEASE_REPO=deep-diver/deploy-hf-tf-vision-models
+export MODEL_RELEASE_REPO=sayakpaul/deploy-hf-tf-vision-models
 export MODEL_RELEASE_TAG=1.0
 export MODEL_RELEASE_FILE=saved_model.tar.gz
 
