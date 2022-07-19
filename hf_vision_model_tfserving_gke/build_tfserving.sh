@@ -1,4 +1,7 @@
-#! /bin/sh
+#! /bin/sh -i
+
+export ROOT_DIR=/tmp
+
 export GCP_PROJECT_ID=gcp-ml-172005
 export BASE_IMAGE_TAG=gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt
 
@@ -12,7 +15,7 @@ export MODEL_NAME=hf-vit
 ### VERSION which will be added at the end of Docker Image tag
 export VERSION=latest
 
-eval "$(cat ~/.bashrc)"
+source ~/.bashrc
 
 wget https://github.com/$MODEL_RELEASE_REPO/releases/download/$MODEL_RELEASE_TAG/$MODEL_RELEASE_FILE
 mv saved_model.tar.gz $ROOT_DIR/$MODEL_RELEASE_FILE
