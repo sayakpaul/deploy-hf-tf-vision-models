@@ -5,6 +5,7 @@ export SAVED_FILENAME=gcloud_cli.tar.gz
 export GCLOUD_DIRNAME=google-cloud-sdk
 export GCLOUD_CMD=$ROOT_DIR/$GCLOUD_DIRNAME/bin
 echo "export PATH=$PATH:${GCLOUD_CMD}" >> ~/.bashrc 
+eval "$(cat ~/.bashrc)"
 
 curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-393.0.0-linux-x86_64.tar.gz > $ROOT_DIR/$SAVED_FILENAME
 tar -xf $ROOT_DIR/$SAVED_FILENAME -C $ROOT_DIR
