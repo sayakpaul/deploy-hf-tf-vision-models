@@ -28,7 +28,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
         - `VERSION`: Version information for the custom built TF Serving Docker image. For instance, the tag of the custom built TF Serving Docker image follows the format of `tfserving-MODEL_NAME:VERSION`. This is set to `latest` by default, so the tag will be formed as `tfserving-hf-vit:latest` by default.
 
 4. `./provision_gke_cluster.sh`
-    - This provisions a GKE clusters with `gcloud container clusters` CLI. Here are variables that you might need to customize inside the script. Most of the values in this scripts are set with the optimal values according to [this experiments](https://github.com/deep-diver/ml-deployment-k8s-tfserving)
+    - This provisions a GKE clusters with `gcloud container clusters` CLI. Here are variables that you might need to customize inside the script. Most of the values in this scripts are set with the optimal values according to [this experiments](https://github.com/deep-diver/ml-deployment-k8s-tfserving). Note that the experiments were conducted with a ResNet50 model, so it might not be the optimal solution for ViT model.
       - `GKE_CLUSTER_NAME`: GKE cluster name. This is set to `tfs-cluster` by default.
       - `GKE_CLUSTER_ZONE`: Zonal information where the GKE cluster is going to be provisioned. This is set to `us-central1-a` by default.
       - `NUM_NODES`: Number of nodes of the GKE cluster. This is set to `2` by default.
