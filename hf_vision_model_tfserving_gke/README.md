@@ -24,7 +24,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
         - `MODEL_RELEASE_REPO`: GitHub repository where to download the released model. This should follow the format of `username/reponame`. This is set to `sayakpaul/deploy-hf-tf-vision-models` by default
         - `MODEL_RELEASE_TAG`: Tag name of the GitHub Release where to download the released model. This is set to `1.0` by default
         - `MODEL_RELEASE_FILE`: Model filename to download from the GitHub Release's Asset under `MODEL_RELEASE_REPO` and `MODEL_RELEASE_TAG`. This is set to `saved_model.tar.gz` by default
-        - `MODEL_NAME`: Model name to be exposed to client as an endpoint from TFServing. For instance, the endpoint follows the format of `http://IP_ADDRESS:PORT_NUMBER/v1/models/MODEL_NAME:predict`. This is set to `hf-vit` by default
+        - `MODEL_NAME`: Model name to be exposed to client as an endpoint from TFServing. For instance, the endpoint follows the format of `http://IP_ADDRESS:PORT_NUMBER/v1/models/MODEL_NAME:predict`. `MODEL_NAME` is set to `hf-vit` by default
         - `VERSION`: Version information for the custom built TF Serving Docker image. For instance, the tag of the custom built TF Serving Docker image follows the format of `tfserving-MODEL_NAME:VERSION`. This is set to `latest` by default, so the tag will be formed as `tfserving-hf-vit:latest` by default.
 
 4. `./provision_gke_cluster.sh`
