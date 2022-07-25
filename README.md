@@ -6,7 +6,7 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 
 ## Methods covered
 
-- [x] TensorFlow Serving locally 
+- [x] TensorFlow Serving locally ([blog post from Hugging Face](https://huggingface.co/blog/tf-serving-vision))
 - [x] Vertex AI (without TensorFlow Runtime)
 - [ ] Vertex AI (with TensorFlow Runtime)
 - [x] Kubernetes with GKE
