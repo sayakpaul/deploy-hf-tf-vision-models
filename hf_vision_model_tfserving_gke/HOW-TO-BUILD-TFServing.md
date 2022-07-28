@@ -23,7 +23,7 @@ $ tools/run_in_docker.sh bazel build \
     --copt=-Wno-error=maybe-uninitialized \
     tensorflow_serving/...
 ```
-  - The previous step will build a `tensorflow/serving:nightly-devel` Docker image on your local machine. This is a your platform specific CPU optimized TensorFlow/Core Docker image, and it is going to be the base image of the TF Serving.
+  - The previous step will build a `tensorflow/serving:nightly-devel` Docker image on your local machine. This is your platform-specific CPU-optimized TensorFlow/Core Docker image, and it is going to be the base image of the TF Serving.
 
 5. Go inside the folder where the Dockerfile is.
 ```
