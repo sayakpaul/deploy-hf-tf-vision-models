@@ -1,6 +1,6 @@
 # How to build CPU optimized TF Serving Docker image
 
-This document shows how to build a CPU optimized TF Serving Docker image from source. 
+This document shows how to build a CPU optimized TF Serving Docker image from source suitable for the target deployment hardware.
 
 ## Instructions (Within the target machine)
 
