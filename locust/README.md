@@ -3,7 +3,7 @@
 This directory contains a Locust script for load testing. 
 
 ```
-│   locustfile.py    # gRPC locust client
+│   locustfile.py    # REST locust client
 │   load_test.conf   # load test configs
 │   cat_224x224.jpeg # resized test image
 ```
