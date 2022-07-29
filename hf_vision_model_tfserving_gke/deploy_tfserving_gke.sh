@@ -1,17 +1,17 @@
 #! /bin/sh -i
 
-export GCP_PROJECT_ID=gcp-ml-172005
+export GCP_PROJECT_ID=fast-ai-exploration
 
 export MODEL_NAME=hf-vit
 export VERSION=latest
 export NEW_IMAGE_NAME=tfserving-$MODEL_NAME:$VERSION
 export NEW_IMAGE_TAG=gcr.io/$GCP_PROJECT_ID/$NEW_IMAGE_NAME
-export BASE_IMAGE_TAG=gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt
+export BASE_IMAGE_TAG=gcr.io/$GCP_PROJECT_ID/$NEW_IMAGE_NAME
 
 export GKE_CLUSTER_NAME=tfs-cluster
 export GKE_CLUSTER_ZONE=us-central1-a
 export GKE_DEPLOYMENT_NAME=tfs-server
-export TARGET_EXPERIMENT="8vCPU+16GB+inter_op4"
+export TARGET_EXPERIMENT="8vCPU+32GB+inter_op4"
 
 source ~/.bashrc
 
