@@ -32,7 +32,7 @@ $ cd tensorflow_serving/tools/docker
 
 6. Update `Dockerfile` to use the CPU optimized Docker image as the base. Change the value of `TF_SERVING_VERSION` from `latest` to `tensorflow/serving:nightly-devel`
 ```
-ARG TF_SERVING_VERSION=tensorflow/serving:nightly-devel
+ARG TF_SERVING_VERSION=nightly
 ```
 
 7. Build TF Serving Docker image. The command below is going to build a CPU optimized TF Serving image named as `tfserving:c2-avx512-nvvi-base`. For this project, we have used [`C2` instance](https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types) from Google Cloud, and the instance supports AVX512, FMA, and VNNI instruction sets. 
