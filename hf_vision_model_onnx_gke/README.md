@@ -4,7 +4,7 @@ This directory contains the files necessary to deploy an ONNX-optimized version
 of the [TF ViT model from 🤗 Transformers](https://huggingface.co/docs/transformers/main/en/model_doc/vit#transformers.TFViTModel) with Docker and Kubernetes. We use [Kubernetes Engine](https://cloud.google.com/kubernetes-engine) for managing the Kubernetes cluster. More specifically, the ONNX model is deployed as a REST endpoint through [FastAPI](https://fastapi.tiangolo.com/).
 
 Below, you'll find all the step-by-step instructions for performing the deployment. If you'd
-like to locally deploy the FastAPI first refer [to this section](##local-deployment).
+like to locally deploy the FastAPI first refer [to this section](#local-deployment).
 
 ## Obtain the ONNX model
 
