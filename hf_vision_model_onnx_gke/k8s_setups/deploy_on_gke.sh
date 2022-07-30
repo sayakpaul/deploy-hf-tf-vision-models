@@ -16,7 +16,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # Authenticate cluster.
 gcloud container clusters get-credentials $GKE_CLUSTER_NAME --zone $GKE_CLUSTER_ZONE --project $GCP_PROJECT_ID  
 
-cd .kube
+cd ../.kube
 export PATH=$PATH:$(pwd)
 
 # Deploy.
