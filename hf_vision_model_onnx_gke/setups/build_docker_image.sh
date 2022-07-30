@@ -12,5 +12,5 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 gcloud --quiet auth configure-docker
 
 # Build image and push.
-docker build --tag "$IMAGE:latest" .
+docker build -f ../Dockerfile --tag "$IMAGE:latest" .
 docker push "$IMAGE:latest"
