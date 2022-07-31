@@ -8,11 +8,13 @@ like to locally deploy the FastAPI first refer [to this section](#local-deployme
 
 ## Obtain the ONNX model
 
-Consult the `convert-to-onnx.ipynb` notebook for this. Note that it's often helpful
+Consult the `misc/convert-to-onnx.ipynb` notebook for this. Note that it's often helpful
 to generate the ONNX model on the hardware that will be used for deploying the model.
 
 In this case, we used a [`c2` type machine on GCP](https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types) to take advantage of its support for
 advanced instructions sets like [AVX-512](https://en.wikipedia.org/wiki/AVX-512) suited for deep learning inference. 
+
+You can download the ONNX file from [here](https://github.com/sayakpaul/deploy-hf-tf-vision-models/releases/download/2.0/vit-base-patch16-224.onnx).
 
 Once the ONNX model is obtained you can proceed to the rest of the steps. 
 
