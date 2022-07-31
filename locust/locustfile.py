@@ -12,7 +12,7 @@ class ImgClssificationUser(HttpUser):
 
     with open(image_path, "rb") as f:
         bytes_inputs = f.read()
-    b64str = base64.urlsafe_b64encode(bytes_inputs.numpy()).decode("utf-8")
+    b64str = base64.urlsafe_b64encode(bytes_inputs).decode("utf-8")
     data = json.dumps(
         {"signature_name": "serving_default", "instances": [b64str]}
     )
