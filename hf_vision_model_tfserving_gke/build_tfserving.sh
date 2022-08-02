@@ -3,7 +3,7 @@
 export ROOT_DIR=/tmp
 
 export GCP_PROJECT_ID=fast-ai-exploration
-export BASE_IMAGE_TAG=gcr.io/fast-ai-exploration/tfserving-n2
+export BASE_IMAGE_TAG=gcr.io/gcp-ml-172005/tfs-resnet-cpu-opt
 
 ### Repository where to download SavedModel from
 export MODEL_RELEASE_REPO=sayakpaul/deploy-hf-tf-vision-models

@@ -4,7 +4,7 @@ This directory contains a Locust script for load testing.
 
 ```
 │   locustfile.py    # REST locust client
-│   load_test.conf   # load test configs
+│   configs.conf   # load test configs
 │   cat_224x224.jpeg # resized test image
 ```
 
@@ -16,16 +16,16 @@ This directory contains a Locust script for load testing.
 pip install locust
 ```
 
-2. Replace placeholderes. In `load_test.conf` and `locustfile.py`, there are three placeholders of `<<ENDPOINT-IP-ADDRESS>>`. You have to replace those with the actual endpoint that your TF Serving is deployed on. Also you need to replace `<<WHERE-TO-STORE-RESPORT>>` placeholders in `load_test.conf` with where you want to save the final report.
+2. Replace placeholderes. In `configs.conf` and `locustfile.py`, there are three placeholders of `<<ENDPOINT-IP-ADDRESS>>`. You have to replace those with the actual endpoint that your TF Serving is deployed on. Also you need to replace `<<WHERE-TO-STORE-RESPORT>>` placeholders in `configs.conf` with where you want to save the final report.
 
 
-3. `locust` the `load_test.conf`. Every bits of configurations are defined in `load_test.conf`, so you only need to specify it in `--config` option.
+3. `locust` the `configs.conf`. Every bits of configurations are defined in `configs.conf`, so you only need to specify it in `--config` option.
 
 ```bash
-$ locust --config=load_test.conf
+$ locust --config=configs.conf
 ```
 
-### Inside `load_test.conf`
+### Inside `configs.conf`
 
 ```
 locustfile = locustfile.py

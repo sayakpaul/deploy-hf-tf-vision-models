@@ -6,7 +6,7 @@ export NUM_NODES=2
 
 # export NUM_CORES=8
 # export MEM_CAPACITY=16384
-export MACHINE_TYPE=n2-standard-8
+export MACHINE_TYPE=n1-standard-8
 
 source ~/.bashrc
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
