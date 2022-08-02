@@ -1,6 +1,6 @@
 # How to build CPU optimized TF Serving Docker image
 
-This document shows how to build a CPU optimized TF Serving Docker image from source suitable for the target deployment hardware.
+This document shows how to build a CPU optimized TF Serving Docker image from source suitable for the target deployment hardware. For more detailed description of each steps and additional step to push the Docker image to [GCR(Google Cloud Registry)](https://cloud.google.com/container-registry), please read about them [here](https://gde-codelabs.github.io/posts/how-to-build-cpuopt-tfserving/#0)
 
 ## Instructions (Within the target machine)
 
