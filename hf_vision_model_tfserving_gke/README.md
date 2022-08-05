@@ -53,7 +53,7 @@ There are six shell scripts to deploy 🤗 `transformers` ViT model with TF Serv
 After all of these steps goes successfully, you will see the output similar to below. There are two parts. 
 - The first part shows the endpoints of the deployment. Port number `8500` is for `HTTP/1.1` based RESTful API, while port number `8501` is for `HTTP/2` based gRPC API. 
 
-- The second part shows the rolling status of the deployment. Pay attention that `Image` is set correctly, and there are two `Ports` for `HTTP/1.1` and `HTTP/2`. Also, some TF Serving specific flags are set in the `Args` (i.e `tensorflow_inter_op_parallelism` and `tensorflow_intra_op_parallelism`). Finally `Replicas` shows there are desired number of pods running. 
+- The second part shows the rolling status of the deployment. Pay attention that `Image` is set correctly, and there are two `Ports` for `HTTP/1.1` and `HTTP/2`. Also, some TF Serving specific flags are set in the `Args` (i.e., `tensorflow_inter_op_parallelism` and `tensorflow_intra_op_parallelism`). Finally `Replicas` shows there are desired number of pods running. 
 
 ```
 # Part 1
@@ -76,7 +76,7 @@ Pod Template:
   Labels:  app=tfs-server
   Containers:
    tfs-k8s:
-    Image:       gcr.io/gcp-ml-172005/tfserving-hf-vit:latest
+    Image:       gcr.io/GCP_PROJECT_ID/tfserving-hf-vit:latest
     Ports:       8500/TCP, 8501/TCP
     Host Ports:  0/TCP, 0/TCP
     Args:
@@ -102,4 +102,27 @@ Events:
 
 ## Instructions to perform inference with the endpoint
 
-TBD
+Note down the external IP associated with `tfs-server` and use the following listing:
+
+```py
+import tensorflow as tf 
+import json
+import base64
+
+
+image_path = tf.keras.utils.get_file(
+    "image.jpg", "http://images.cocodataset.org/val2017/000000039769.jpg"
+)
+bytes_inputs = tf.io.read_file(image_path)
+b64str = base64.urlsafe_b64encode(bytes_inputs.numpy()).decode("utf-8")
+data = json.dumps(
+    {"signature_name": "serving_default", "instances": [b64str]}
+)
+
+json_response = requests.post(
+    "http://<ENDPOINT-IP>:8501/v1/models/hf-vit:predict", 
+    headers={"content-type": "application/json"}, 
+    data=data
+)
+print(json.loads(json_response.text))
+```
