@@ -12,6 +12,8 @@
         export ENDPOINT_ID=...
         export JSON_PAYLOAD=single-instance.json # Change this for experimentation
         ```
+    
+    * Authenticate yourself: `gcloud auth application-default login`.
 
     * Configure Locust-specific variables inside `load_test.conf`. 
 
