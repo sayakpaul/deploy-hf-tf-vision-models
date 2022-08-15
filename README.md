@@ -18,7 +18,7 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
   - Under the hood, Vertex AI Prediction leverages all the technologies from GKE, TensorFlow Serving, and more. 
   - That means you can deploy and scale the deployment of machine learning models, but you don't need to worry to make it happened from building a custom Docker image to writing Kubernetes specific menifests to setting up model monitoring capability.
   - With this, you will be able to serve and scale your own machine learning model by calling various APIs from `google-cloud-aiplatform` SDK to interact with Vertex AI. 
-  - Also, we provide extra codes to show how to perform load-test with [Locust](https://locust.io/), and you will find how to construct requests and send them to the Vertex AI Endpoint without `PredictionServiceClient` module dependency from `google-cloud-aiplatform` SDK.
+  - We provide utilities to perform load-test with [Locust](https://locust.io/). Refer [here](./hf_vision_model_vertex_ai/locust) for more details.
 
 - [ ] Vertex AI Prediction (w/ [optimized TFRT](https://cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime))
   - TBD
