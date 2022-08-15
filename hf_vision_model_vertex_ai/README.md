@@ -8,7 +8,7 @@
 
         ```bash
         export GCP_PROJECT=...
-        export REGION=use-central1
+        export REGION=us-central1
         export ENDPOINT_ID=...
         export JSON_PAYLOAD=single-instance.json # Change this for experimentation
         ```
