@@ -7,7 +7,7 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 ## Methods covered
 
 - [x] Local TensorFlow Serving | [Blog post from 🤗](https://huggingface.co/blog/tf-serving-vision)
-  - We cover how to run a custom TensorFlow Serving with 🤗 Transformers' ViT model. 
+  - We cover how to locally deploy a Vision Transformer (ViT) model from 🤗 Transformers with TensorFlow Serving. 
   - With this, you will be able to serve your own machine learning models in a standalone Python application.
 - [x] Kubernetes([GKE](https://cloud.google.com/kubernetes-engine)) | [Blog post from 🤗](https://huggingface.co/blog/deploy-tfserving-kubernetes)
   - We cover how to build a custom TensorFlow Serving Docker image with 🤗 Transformers' ViT model, provision GKE cluster, deploy the Docker image to the GKE cluster.
