@@ -6,13 +6,16 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 
 ## Methods covered
 
-- [x] TensorFlow Serving locally ([blog post from Hugging Face](https://huggingface.co/blog/tf-serving-vision))
-- [x] Vertex AI (without TensorFlow Runtime)
-- [ ] Vertex AI (with TensorFlow Runtime)
-- [x] Kubernetes with GKE ([blog post from Hugging Face](https://huggingface.co/blog/deploy-tfserving-kubernetes))
+- [x] Local TensorFlow Serving | [Blog post from 🤗](https://huggingface.co/blog/tf-serving-vision)
+- [x] [Vertex AI Prediction](https://cloud.google.com/vertex-ai/docs/predictions/getting-predictions) 
+- [ ] Vertex AI Prediction (w [optimized TFRT](https://cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime))
+- [x] Kubernetes with GKE | [Blog post from 🤗](https://huggingface.co/blog/deploy-tfserving-kubernetes)
 
-Know more about the optimized TensorFlow runtime [here](https://cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime).
+Know more about the optimized TFRT(TensorFlow RunTime) [here](https://github.com/tensorflow/runtime) and GKE(Google Kubernetes Engine) [here](https://cloud.google.com/kubernetes-engine).
 
-A more detailed README will be added later. 
+## Each methods in detail
 
-
+### TensorFlow Serving 
+### Vertex AI Prediction
+### Vertex AI Prediction (w/ optimized TFRT)
+### Kubernetes with GKE(Google Kubernetes Engine)
