@@ -16,7 +16,7 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 - [x] [Vertex AI Prediction](https://cloud.google.com/vertex-ai/docs/predictions/getting-predictions) 
   - We cover how to deploy 🤗 Transformers' ViT model to Google Cloud's fully managed machine learning deployment service (Vertex AI Prediction). 
   - Under the hood, Vertex AI Prediction leverages all the technologies from GKE, TensorFlow Serving, and more. 
-  - That means you can deploy and scale the deployment of machine learning models, but you don't need to worry to make it happened from building a custom Docker image to writing Kubernetes specific menifests to setting up model monitoring capability.
+  - That means you can deploy and scale the deployment of machine learning models, but you don't need to worry about building a custom Docker image or writing Kubernetes-specific manifests, or setting up model monitoring capability.
   - With this, you will be able to serve and scale your own machine learning model by calling various APIs from `google-cloud-aiplatform` SDK to interact with Vertex AI. 
   - We provide utilities to perform load-test with [Locust](https://locust.io/). Refer [here](./hf_vision_model_vertex_ai/locust) for more details.
 
