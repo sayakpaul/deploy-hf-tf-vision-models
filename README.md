@@ -19,7 +19,7 @@ For this project, we leverage Google Cloud Platform for using managed services [
   - We provide utilities to perform load-test with [Locust](https://locust.io/) and visualization notebook as well. Refer [here](./hf_vision_model_tfserving_gke/locust) for more details.
 
 - [x] [ONNX on Kubernetes (GKE)](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_onnx_gke)
-  - The workflow here is similar to the above one. 
+  - The workflow here is similar to the above one but here we used an ONNX-optimized version of the ViT model. 
   - ONNX is particularly useful when you're deploying models using x86 CPUs. 
   - This workflow doesn't require you to build any custom TF Serving image. 
   - One important thing to keep in mind is to generate the ONNX model in a machine type which is the same as the deployment hardware. This means if you're going to use the `n1-standard-8` machine type for deployment, generate the ONNX model in the same machine type to ensure ONNX optimizations are relevant. 
