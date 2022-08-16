@@ -4,6 +4,8 @@ _By [Chansung Park](https://github.com/deep-diver) and [Sayak Paul](https://gith
 
 This repository shows various ways of deploying a vision model (TensorFlow) from 🤗 Transformers using the TensorFlow Ecosystem. In particular, we use TensorFlow Serving (for local deployment), Vertex AI (serveless deployment), Kubernetes and GKE (more controlled deployment) with TensorFlow Serving and ONNX.
 
+For this project, we leverage Google Cloud Platform for using managed services [Vertex AI](https://cloud.google.com/vertex-ai) and [GKE](https://cloud.google.com/kubernetes-engine). 
+
 ## Methods covered
 
 - [x] [Local TensorFlow Serving](https://github.com/sayakpaul/deploy-hf-tf-vision-models/blob/main/hf_vision_model_tfserving.ipynb) | [Blog post from 🤗](https://huggingface.co/blog/tf-serving-vision)
