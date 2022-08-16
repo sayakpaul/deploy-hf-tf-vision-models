@@ -10,11 +10,17 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
   - We cover how to locally deploy a Vision Transformer (ViT) model from 🤗 Transformers with TensorFlow Serving. 
   - With this, you will be able to serve your own machine learning models in a standalone Python application.
 
-- [x] [TensorFlow Serving on Kubernetes(GKE)](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_tfserving_gke) | [Blog post from 🤗](https://huggingface.co/blog/deploy-tfserving-kubernetes)
+- [x] [TensorFlow Serving on Kubernetes (GKE)](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_tfserving_gke) | [Blog post from 🤗](https://huggingface.co/blog/deploy-tfserving-kubernetes)
   - We cover how to build a custom TensorFlow Serving Docker image with Vision Transformer (ViT) model from 🤗 Transformers, provision [Google Kubernetes Engine(GKE)]((https://cloud.google.com/kubernetes-engine)) cluster, deploy the Docker image to the GKE cluster.
   - Particularly, we cover Kubernetes specific topics such as creating Deployment/Service/HPA Kubernetes objects for scalable deployment of the Docker image to the nodes(VMs) and expose them as a service to clients.
   - With this, you will be able to serve and scale your own machine learning models according to the CPU utilizations of the deployment as a whole.
   - We provide utilities to perform load-test with [Locust](https://locust.io/) and visualization notebook as well. Refer [here](./hf_vision_model_tfserving_gke/locust) for more details.
+
+- [x] [ONNX on Kubernetes (GKE)](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_onnx_gke)
+  - The workflow here is similar to the above one. 
+  - ONNX is particularly useful when you're deploying models using x86 CPUs. 
+  - This workflow doesn't require you to build any custom TF Serving image. 
+  - One important thing to keep in mind is to generate the ONNX model in a machine type which is the same as the deployment hardware. This means if you're going to use the `n1-standard-8` machine type for deployment, generate the ONNX model in the same machine type to ensure ONNX optimizations are relevant. 
 
 - [x] [Vertex AI Prediction](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_vertex_ai) 
   - We cover how to deploy Vision Transformer (ViT) model from 🤗 Transformers to Google Cloud's fully managed machine learning deployment service ([Vertex AI Prediction]((https://cloud.google.com/vertex-ai/docs/predictions/getting-predictions))). 
@@ -25,6 +31,8 @@ This repository shows various ways of deploying a vision model (TensorFlow) from
 
 - [ ] Vertex AI Prediction (w/ [optimized TFRT](https://cloud.google.com/vertex-ai/docs/predictions/optimized-tensorflow-runtime))
   - TBD
+  - Know more about the optimized TFRT(TensorFlow RunTime) [here](https://github.com/tensorflow/runtime).
 
-Know more about the optimized TFRT(TensorFlow RunTime) [here](https://github.com/tensorflow/runtime).
+## Acknowledgements
 
+We're thankful to the ML Developer Programs team at Google that provided GCP support. 
