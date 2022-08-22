@@ -24,7 +24,7 @@ For this project, we leverage Google Cloud Platform for using managed services [
   - This workflow doesn't require you to build any custom TF Serving image. 
   - One important thing to keep in mind is to generate the ONNX model in a machine type which is the same as the deployment hardware. This means if you're going to use the `n1-standard-8` machine type for deployment, generate the ONNX model in the same machine type to ensure ONNX optimizations are relevant. 
 
-- [x] [Vertex AI Prediction](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_vertex_ai) 
+- [x] [Vertex AI Prediction](https://github.com/sayakpaul/deploy-hf-tf-vision-models/tree/main/hf_vision_model_vertex_ai) | [Blog post from 🤗](https://huggingface.co/blog/deploy-vertex-ai)
   - We cover how to deploy Vision Transformer (ViT) model from 🤗 Transformers to Google Cloud's fully managed machine learning deployment service ([Vertex AI Prediction]((https://cloud.google.com/vertex-ai/docs/predictions/getting-predictions))). 
   - Under the hood, Vertex AI Prediction leverages all the technologies from GKE, TensorFlow Serving, and more. 
   - That means you can deploy and scale the deployment of machine learning models, but you don't need to worry about building a custom Docker image or writing Kubernetes-specific manifests, or setting up model monitoring capability.
